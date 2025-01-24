@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/allcss.css">
+</head>
+<body>
+    <div class="container">
+    <h1>Comment for the id <%= theComment.id %></h1>
+    <div class="comments" type="none">
+            <div  class="li">
+                <strong>
+                    <p>
+                        <b>Username: </b><%= theComment.username %>
+                    </p>
+                </strong>
+                <p>
+                    <b>Comment: </b><%= theComment.comment %>
+                </p>
+            </div>
+    </div>
+        <div style="display:flex;flex-direction:row;gap:5px;">
+            <form action="/comments" method="get">
+                <button type="submit">Back to Main</button>
+            </form>
+            <form action="/comments/<%= theComment.id %>/edit" method="get">
+                <button type="submit">Edit</button>
+            </form>
+            <form method="post" action="/comments/<%= theComment.id %>?_method=DELETE">
+                <button>Delete</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
